@@ -1,0 +1,69 @@
+//
+// Variables
+//
+@import "variables";
+
+//
+// Import needed Bootstrap Package Files
+//
+@import "../../../../../bootstrap_package/Resources/Public/Scss/Theme/theme";
+
+.extbase-debugger-floating {
+    margin-top: 100px;
+}
+.card-deck .card {
+    max-width: 47%;
+    margin-bottom: 1.5rem;
+    .card-img {
+        height: auto;
+    }
+}
+
+.navbar-mainnavigation.navbar-fixed-top {
+    border-bottom: solid 5px;
+    border-color: $primary;
+    background-color: $white;
+}
+.navbar-mainnavigation .navbar-brand-image {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+.navbar-default-transition:not(.navbar-transition) .navbar-nav>li>.nav-link {
+    color: $gray-900 !important;
+}
+.navbar-default-transition:not(.navbar-transition) .navbar-nav>li>.nav-link:hover {
+    color: $primary !important;
+}
+.navbar-default-transition:not(.navbar-transition) {
+    background-color: $white !important;
+}
+
+    //
+// extra frame background colors
+//
+.frame-background-red {
+    background-color: $red;
+}
+.frame-background-yellow {
+    background-color: $yellow;
+}
+.frame-background-green {
+    background-color: $green;
+}
+.frame-background-blue {
+    background-color: $blue;
+}
+.frame {
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+}
+
+//
+// header
+//
+.carousel-item-type-call_to_action .carousel-box {
+    background-color: transparentize(#ffffff, 15%);
+    .carousel-item-header {
+        color: $primary;
+    }
+}

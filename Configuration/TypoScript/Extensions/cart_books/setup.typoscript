@@ -1,0 +1,16 @@
+plugin.tx_cartbooks {
+    view {
+        templateRootPaths {
+            0 = EXT:cart_books/Resources/Private/Templates/
+            100 = EXT:bookshop_sitepackage/Resources/Private/Templates/cart_books/
+        }
+        partialRootPaths {
+            0 = EXT:cart_books/Resources/Private/Partials/
+            100 = EXT:bookshop_sitepackage/Resources/Private/Partials/cart_books/
+        }
+        layoutRootPaths {
+            0 = EXT:cart_books/Resources/Private/Layouts/
+            100 = EXT:bookshop_sitepackage/Resources/Private/Layouts/cart_books/
+        }
+    }
+}

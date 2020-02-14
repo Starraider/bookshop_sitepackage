@@ -1,0 +1,47 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:cart="http://typo3.org/ns/Extcode/Cart/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+
+<ul class="list-unstyled">
+    <f:for each="{books}" as="book">
+        <li class="media">
+            <f:if condition="{book.images}">
+                <cartbooks:link.book book="{book}" settings="{settings}">
+                    <f:image src="{book.firstImage.originalResource.originalFile.uid}"
+                             title="{book.firstImage.originalResource.title}"
+                             alt="{book.firstImage.originalResource.title}"
+                             width="{settings.listAction.media.image.size.small.maxWidth}"
+                             height="{settings.listAction.media.image.size.small.maxHeight}"
+                             class="mr-3" />
+                </cartbooks:link.book>
+            </f:if>
+            <div class="media-body">
+                <f:if condition="{book.author}">
+                    <div class="book-author">Autor: {book.author}</div>
+                </f:if>
+                <f:if condition="{book.editor}">
+                    <div class="book-editor">Hrsg.: {book.editor}</div>
+                </f:if>
+                <cartbooks:link.book book="{book}" settings="{settings}">
+                    <h5 class="mt-0 mb-1">{book.title}</h5>
+                </cartbooks:link.book>
+                <h6>{book.subtitle}</h6>
+                <f:if condition="{book.dateOfPublication}">
+                    <span class="book-dateOfPublication">
+                        <f:format.date format="Y">{book.dateOfPublication}</f:format.date>, &nbsp;
+                    </span>
+                </f:if>
+                <f:if condition="{book.numberOfPages}">
+                    <span class="book-numberOfPages">{book.numberOfPages} Seiten</span>&nbsp;
+                </f:if>
+                <f:if condition="{book.sku}">
+                    <span class="book-sku"><strong>ISBN:</strong> {book.sku}</span>
+                </f:if>
+                <cartbooks:link.book book="{book}" settings="{settings}">
+                    <div class="book-title"><f:translate key="tx_cartbooks.more_link" /><i class="fa fa-chevron-right" aria-hidden="true"></i></div>
+                </cartbooks:link.book>
+            </div>
+        </li>
+    </f:for>
+</ul>
+</html>

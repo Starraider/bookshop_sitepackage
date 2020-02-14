@@ -1,0 +1,37 @@
+######################
+#### DEPENDENCIES ####
+######################
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/setup.typoscript">
+
+#############################################################
+#### EXTENSIONS                                          ####
+#### Manual inclusion to keep control over loading order ####
+#############################################################
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bookshop_sitepackage/Configuration/TypoScript/Extensions/cart/setup.typoscript" condition="userFunc = TYPO3\\CMS\\Core\\Utility\\ExtensionManagementUtility::isLoaded('cart')">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bookshop_sitepackage/Configuration/TypoScript/Extensions/cart_books/setup.typoscript" condition="userFunc = TYPO3\\CMS\\Core\\Utility\\ExtensionManagementUtility::isLoaded('cart_books')">
+
+
+##############
+#### PAGE ####
+##############
+page {
+    includeCSS {
+        theme = EXT:bookshop_sitepackage/Resources/Public/Scss/Theme/theme.scss
+    }
+
+    includeJSLibs {
+
+    }
+
+    includeJS {
+
+    }
+
+    includeJSFooterlibs {
+
+    }
+
+    includeJSFooter {
+        bookshop_sitepackage_scripts = EXT:bookshop_sitepackage/Resources/Public/JavaScript/Dist/scripts.js
+    }
+}

@@ -1,0 +1,110 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:cart="http://typo3.org/ns/Extcode/Cart/ViewHelpers"
+      xmlns:cartbooks="http://typo3.org/ns/Extcode/CartBooks/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+
+<cart:titleTag>
+    <f:format.htmlentitiesDecode>{book.title}</f:format.htmlentitiesDecode>
+</cart:titleTag>
+
+<f:if condition="{book.metaDescription}">
+    <f:then>
+        <cart:metaTag name="description" content="{book.metaDescription -> f:format.stripTags() -> f:format.crop(maxCharacters: '150')}" />
+    </f:then>
+    <f:else>
+        <cart:metaTag name="description" content="{book.description -> f:format.stripTags() -> f:format.crop(maxCharacters: '150')}" />
+    </f:else>
+</f:if>
+
+<script type="application/ld+json">
+<cartbooks:schema book="{book}" />
+</script>
+
+<div class="book-wrapper">
+    <div class="row">
+        <div class="col-md-4">
+            <f:if condition="{book.images}">
+                <f:image src="{book.firstImage.originalResource.originalFile.uid}"
+                         title="{book.firstImage.originalResource.title}"
+                         alt="{book.firstImage.originalResource.title}"
+                         width="{settings.showAction.media.image.size.medium.maxWidth}"
+                         height="{settings.showAction.media.image.size.medium.maxHeight}"
+                         class="img-fluid" />
+
+                <f:if condition="{book.images -> f:count()} > 1">
+                    <f:for each="{book.images}" as="image">
+                        <f:image src="{image.originalResource.originalFile.uid}"
+                                 title="{image.originalResource.title}"
+                                 alt="{image.originalResource.title}"
+                                 width="{settings.showAction.media.image.size.small.maxWidth}"
+                                 height="{settings.showAction.media.image.size.small.maxHeight}"
+                                 class="img-fluid" />
+                    </f:for>
+                </f:if>
+            </f:if>
+        </div>
+        <div class="col-md-8">
+            <f:if condition="{book.author}">
+                <div class="book-author"><strong>Autor: {book.author}</strong></div>
+            </f:if>
+            <f:if condition="{book.editor}">
+                <div class="book-editor"><strong>Hrsg.:</strong> {book.editor}</div>
+            </f:if>
+
+            <div class="book-title"><h1>{book.title}</h1></div>
+            <f:if condition="{book.subtitle}">
+                <div class="book-subtitle"><h2>{book.subtitle}</h2></div>
+            </f:if>
+
+            <div class="book-data">
+                <f:if condition="{book.dateOfPublication}">
+                    <span class="book-dateOfPublication">
+                        <f:format.date format="Y">{book.dateOfPublication}</f:format.date>,
+                    </span>
+                </f:if>
+                <f:if condition="{book.numberOfPages}">
+                    <span class="book-numberOfPages">{book.numberOfPages} Seiten</span>
+                </f:if>
+            </div>
+
+            <f:if condition="{book.sku}">
+                <div class="book-sku"><strong>ISBN:</strong> {book.sku}</div>
+            </f:if>
+            <div>
+                <f:render partial="Book/Price" arguments="{book: book}" />
+            </div>
+            <f:if condition="bookable">
+                <div>
+                    <f:render partial="Book/CartForm" arguments="{book: book, pid: cartSettings.cart.pid}" />
+                </div>
+            </f:if>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 book-description">
+            <f:format.html>{book.description}</f:format.html>
+        </div>
+    </div>
+</div>
+
+
+<f:if condition="{slot.handleStock}">
+    <div>
+        <f:render partial="Book/Seats" arguments="{book: book}" />
+    </div>
+</f:if>
+
+
+
+
+
+<f:if condition="{book.relatedBooks}">
+    <h5>Das könnte Sie auch interessieren:</h5>
+    <ul>
+        <f:for each="{book.relatedBooks}" as="relatedBook">
+            <li>
+                <f:render partial="Book/RelatedBook" arguments="{book: relatedBook, settings: settings}"/>
+            </li>
+        </f:for>
+    </ul>
+</f:if>
