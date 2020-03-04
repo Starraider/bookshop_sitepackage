@@ -3,17 +3,6 @@
 //
 
 //
-// Colors
-//
-$color-facebook:    #3b5999;
-$color-twitter:     #55acee;
-$color-instagram:   #e4405f;
-$color-youtube:     #cd201f;
-$color-xing:        #026466;
-$color-kununu:      #000000;
-
-
-//
 // Subnav
 //
 $subnav-font-size:            $font-size-base * 0.875;
@@ -27,29 +16,5 @@ $subnav-hover-bg:             #f2f2f2;
 $subnav-active-color:         $link-color;
 $subnav-active-bg:            transparent;
 
-// Headline Scaling
-$headline-scaling: ();
-$headline-scaling: map-merge((
-        xs: 0.8,
-        sm: 0.8,
-        md: 0.9,
-        lg: 1,
-        xl: 1
-), $headline-scaling);
 
-//
-// Footer
-//
-$footer-sections: ();
-$footer-sections: map-merge((
-        content: (
-                background:                $secondary,
-                color:                     $body-color,
-                link-color:                $link-color
-        ),
-        meta: (
-                background:                $body-bg,
-                color:                     $body-color,
-                link-color:                $link-color
-        )
-), $footer-sections);
+

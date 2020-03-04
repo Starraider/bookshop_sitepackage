@@ -2,6 +2,7 @@
 #### DEPENDENCIES ####
 ######################
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/setup.typoscript">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:skom_sitepackage/Configuration/TypoScript/setup.typoscript">
 
 #############################################################
 #### EXTENSIONS                                          ####
@@ -15,6 +16,27 @@
 #### PAGE ####
 ##############
 page {
+    10 = FLUIDTEMPLATE
+    10 {
+        templateRootPaths {
+            0 = EXT:bootstrap_package/Resources/Private/Templates/Page/
+            1 = EXT:skom_sitepackage/Resources/Private/Templates/Page/
+            2 = EXT:bookshop_sitepackage/Resources/Private/Templates/Page/
+            3 = {$page.fluidtemplate.templateRootPath}
+        }
+        partialRootPaths {
+            0 = EXT:bootstrap_package/Resources/Private/Partials/Page/
+            1 = EXT:skom_sitepackage/Resources/Private/Partials/Page/
+            2 = EXT:bookshop_sitepackage/Resources/Private/Partials/Page/
+            3 = {$page.fluidtemplate.partialRootPath}
+        }
+        layoutRootPaths {
+            0 = EXT:bootstrap_package/Resources/Private/Layouts/Page/
+            1 = EXT:skom_sitepackage/Resources/Private/Layouts/Page/
+            2 = EXT:bookshop_sitepackage/Resources/Private/Layouts/Page/
+            3 = {$page.fluidtemplate.layoutRootPath}
+        }
+    }
     includeCSS {
         theme = EXT:bookshop_sitepackage/Resources/Public/Scss/Theme/theme.scss
     }
