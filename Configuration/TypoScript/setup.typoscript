@@ -46,6 +46,9 @@ page {
     }
 
     includeJS {
+        tx_cart = EXT:cart/Resources/Public/JavaScripts/cart.js
+        tx_cart.defer = 1
+        #bookshop_sitepackage_scripts = EXT:bookshop_sitepackage/Resources/Public/JavaScript/Dist/scripts.js
 
     }
 
@@ -54,6 +57,7 @@ page {
     }
 
     includeJSFooter {
-        bookshop_sitepackage_scripts = EXT:bookshop_sitepackage/Resources/Public/JavaScript/Dist/scripts.js
+        tx_cart >
+
     }
 }
