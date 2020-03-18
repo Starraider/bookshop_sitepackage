@@ -75,7 +75,25 @@ plugin.bootstrap_package_contentelements {
 plugin.bootstrap_package_contentelements {
     header.defaultHeaderType = 1
 }
-
+#############################
+### Header (border) Slide ###
+#############################
+page.theme.pagelayout {
+    2_columns.colPos.3.slide = -1
+    2_columns_25_75.colPos.3.slide = -1
+    2_columns_50_50.colPos.3.slide = -1
+    2_columns_offset_right.colPos.3.slide = -1
+    3_columns.colPos.3.slide = -1
+    default.colPos.3.slide = -1
+    simple.colPos.3.slide = -1
+    special_feature.colPos.3.slide = -1
+    special_start.colPos.3.slide = -1
+    subnavigation_left.colPos.3.slide = -1
+    subnavigation_left_2_columns.colPos.3.slide = -1
+    subnavigation_right.colPos.3.slide = -1
+    subnavigation_right_2_columns.colPos.3.slide = -1
+    example.colPos.3.slide = -1
+}
 
 ################################
 ### BOOTSTRAP SCSS CONSTANTS ###
