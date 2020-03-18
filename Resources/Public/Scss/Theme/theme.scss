@@ -36,7 +36,27 @@
     //background-color: $white !important;
 }
 
+
+@media (min-width: 992px) {
+    .navbar-mainnavigation>.container>.collapse>.navbar-nav:last-child {
+        margin-left: 120px;
+    }
+}
+.navbar-mainnavigation>.container>.collapse>.navbar-nav .nav-link {
+    padding-right: 0.8rem;
+    padding-left: 0.8rem;
+}
+.navbar-mainnavigation.navbar-fixed-top {
+    img {
+      //  @include invisible(hidden);
+    }
+    .navbar-transition {
+        img {
+         //   @include invisible(visible);
+        }
+    }
+}
+
 .gallery-row {
     margin-top: -130px;
 }
-
