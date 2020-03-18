@@ -23,18 +23,19 @@
                     <f:if condition="{book.editor}">
                         <h6 class="card-subtitle mb-2 text-muted">Hrsg.: {book.editor}</h6>
                     </f:if>
-                    <cartbooks:link.book book="{book}" settings="{settings}">
+                    <f:link.action extensionName="cartbooks" controller="Book" pluginName="books" action="show" pageUid="{settings.showPageUids}" arguments="{book:book}">
                         <h5 class="card-title">{book.title}</h5>
-                    </cartbooks:link.book>
+                    </f:link.action>
                     <f:if condition="{book.teaser}">
                         <p class="card-text">
                             <f:format.html>{book.teaser}</f:format.html>
                         </p>
                     </f:if>
 
-                    <cartbooks:link.book book="{book}" settings="{settings}">
-                        <p class="card-text"><f:translate key="tx_cartbooks.more_link" /><i class="fa fa-chevron-right" aria-hidden="true"></i></p>
-                    </cartbooks:link.book>
+                    <f:link.action extensionName="cartbooks" controller="Book" pluginName="books" action="show" pageUid="{settings.showPageUids}" arguments="{book:book}">
+                        <div class="book-text"><f:translate key="tx_cartbooks.more_link" /><i class="fa fa-chevron-right" aria-hidden="true"></i></div>
+                    </f:link.action>
+
                 </div>
             </div>
         </div>

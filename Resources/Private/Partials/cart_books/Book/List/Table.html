@@ -6,14 +6,14 @@
     <f:for each="{books}" as="book">
         <li class="media">
             <f:if condition="{book.images}">
-                <cartbooks:link.book book="{book}" settings="{settings}">
+                <f:link.action extensionName="cartbooks" controller="Book" pluginName="books" action="show" pageUid="{settings.showPageUids}" arguments="{book:book}">
                     <f:image src="{book.firstImage.originalResource.originalFile.uid}"
                              title="{book.firstImage.originalResource.title}"
                              alt="{book.firstImage.originalResource.title}"
                              width="{settings.listAction.media.image.size.small.maxWidth}"
                              height="{settings.listAction.media.image.size.small.maxHeight}"
                              class="mr-3" />
-                </cartbooks:link.book>
+                </f:link.action>
             </f:if>
             <div class="media-body">
                 <f:if condition="{book.author}">
@@ -22,9 +22,9 @@
                 <f:if condition="{book.editor}">
                     <div class="book-editor">Hrsg.: {book.editor}</div>
                 </f:if>
-                <cartbooks:link.book book="{book}" settings="{settings}">
+                <f:link.action extensionName="cartbooks" controller="Book" pluginName="books" action="show" pageUid="{settings.showPageUids}" arguments="{book:book}">
                     <h5 class="mt-0 mb-1">{book.title}</h5>
-                </cartbooks:link.book>
+                </f:link.action>
                 <h6>{book.subtitle}</h6>
                 <f:if condition="{book.dateOfPublication}">
                     <span class="book-dateOfPublication">
@@ -37,9 +37,9 @@
                 <f:if condition="{book.sku}">
                     <span class="book-sku"><strong>ISBN:</strong> {book.sku}</span>
                 </f:if>
-                <cartbooks:link.book book="{book}" settings="{settings}">
+                <f:link.action extensionName="cartbooks" controller="Book" pluginName="books" action="show" pageUid="{settings.showPageUids}" arguments="{book:book}">
                     <div class="book-title"><f:translate key="tx_cartbooks.more_link" /><i class="fa fa-chevron-right" aria-hidden="true"></i></div>
-                </cartbooks:link.book>
+                </f:link.action>
             </div>
         </li>
     </f:for>
