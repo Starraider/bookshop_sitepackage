@@ -17,10 +17,10 @@
             </f:if>
             <div class="media-body">
                 <f:if condition="{book.author}">
-                    <div class="book-author">Autor: {book.author}</div>
+                    <div class="book-author"><f:translate key='tx_cartbooks.author' />: {book.author}</div>
                 </f:if>
                 <f:if condition="{book.editor}">
-                    <div class="book-editor">Hrsg.: {book.editor}</div>
+                    <div class="book-editor"><f:translate key='tx_cartbooks.editor' />: {book.editor}</div>
                 </f:if>
                 <f:link.action extensionName="cartbooks" controller="Book" pluginName="books" action="show" pageUid="{settings.showPageUids}" arguments="{book:book}">
                     <h5 class="mt-0 mb-1">{book.title}</h5>
@@ -32,10 +32,12 @@
                     </span>
                 </f:if>
                 <f:if condition="{book.numberOfPages}">
-                    <span class="book-numberOfPages">{book.numberOfPages} Seiten</span>&nbsp;
+                    <span class="book-numberOfPages">{book.numberOfPages} Seiten,</span>&nbsp;
                 </f:if>
+                <strong><f:translate key='tx_cartbooks.price' />:</strong>
+                <f:render partial="Book/Price" arguments="{book: book}" />
                 <f:if condition="{book.sku}">
-                    <span class="book-sku"><strong>ISBN:</strong> {book.sku}</span>
+                    , &nbsp;<span class="book-sku"><strong>ISBN:</strong> {book.sku}</span>
                 </f:if>
                 <f:link.action extensionName="cartbooks" controller="Book" pluginName="books" action="show" pageUid="{settings.showPageUids}" arguments="{book:book}">
                     <div class="book-title"><f:translate key="tx_cartbooks.more_link" /><i class="fa fa-chevron-right" aria-hidden="true"></i></div>

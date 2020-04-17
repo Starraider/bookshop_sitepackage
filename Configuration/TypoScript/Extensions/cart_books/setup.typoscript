@@ -13,4 +13,18 @@ plugin.tx_cartbooks {
             100 = EXT:bookshop_sitepackage/Resources/Private/Layouts/cart_books/
         }
     }
+    _LOCAL_LANG {
+        default {
+            tx_cartbooks.more_link = [Details]
+            tx_cartbooks.price = Price
+            tx_cartbooks.author = author
+            tx_cartbooks.editor = ed.
+        }
+        de {
+            tx_cartbooks.more_link = [Details]
+            tx_cartbooks.price = Preis
+            tx_cartbooks.author = Autor
+            tx_cartbooks.editor = Hrsg.
+        }
+    }
 }
