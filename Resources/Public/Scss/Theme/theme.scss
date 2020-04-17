@@ -16,6 +16,16 @@
         height: auto;
     }
 }
+.book {
+    .media {
+        margin-bottom: 1rem;
+        .media-body {
+            h5 {
+                font-weight: bold;
+            }
+        }
+    }
+}
 
 .navbar-mainnavigation.navbar-fixed-top {
     //border-bottom: solid 5px;
