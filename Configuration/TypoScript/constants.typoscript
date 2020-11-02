@@ -104,8 +104,9 @@ plugin.bootstrap_package.settings.scss {
     gray-600 = #666666
     gray-900 = #1b171c
 
-    body-color = $gray-900
-
+    body-color = #f8f9fa
+    link-color = $primary
+    link-alternate-color = darken($primary, 20%)
     ## Fonts ##
     enable-responsive-font-sizes = false
     font-size-base = 0.9rem

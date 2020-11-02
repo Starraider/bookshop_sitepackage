@@ -9,6 +9,9 @@
 @import "../../../../../bootstrap_package/Resources/Public/Scss/Theme/theme";
 @import "../../../../../skom_sitepackage/Resources/Public/Scss/Theme/theme";
 
+.body-bg {
+    background-color: #f8f9fa;
+}
 .card-deck .card {
     max-width: 47%;
     margin-bottom: 1.5rem;
@@ -16,6 +19,7 @@
         height: auto;
     }
 }
+
 .book {
     .media {
         margin-bottom: 1rem;
@@ -27,11 +31,6 @@
     }
 }
 
-.navbar-mainnavigation.navbar-fixed-top {
-    //border-bottom: solid 5px;
-    //border-color: $primary;
-    //background-color: $white;
-}
 .navbar-mainnavigation .navbar-brand-image {
     padding-top: 0;
     padding-bottom: 0;
@@ -42,10 +41,6 @@
 .navbar-default-transition:not(.navbar-transition) .navbar-nav>li>.nav-link:hover {
     color: $primary !important;
 }
-.navbar-default-transition:not(.navbar-transition) {
-    //background-color: $white !important;
-}
-
 
 @media (min-width: 992px) {
     .navbar-mainnavigation>.container>.collapse>.navbar-nav:last-child {
@@ -56,17 +51,14 @@
     padding-right: 0.8rem;
     padding-left: 0.8rem;
 }
-.navbar-mainnavigation.navbar-fixed-top {
-    img {
-      //  @include invisible(hidden);
-    }
-    .navbar-transition {
-        img {
-         //   @include invisible(visible);
-        }
+
+.body-bg-top {
+    padding-top: 100px !important;
+}
+@media (min-width: 990px) {
+    .body-bg-top {
+        padding-top: 0 !important;
     }
 }
 
-.gallery-row {
-    margin-top: -130px;
-}
+
