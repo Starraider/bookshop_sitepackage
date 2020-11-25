@@ -24,22 +24,39 @@
     <div class="row">
         <div class="col-md-4">
             <f:if condition="{book.images}">
-                <f:image src="{book.firstImage.originalResource.originalFile.uid}"
-                         title="{book.firstImage.originalResource.title}"
-                         alt="{book.firstImage.originalResource.title}"
-                         width="{settings.showAction.media.image.size.medium.maxWidth}"
-                         height="{settings.showAction.media.image.size.medium.maxHeight}"
-                         class="img-fluid" />
-
                 <f:if condition="{book.images -> f:count()} > 1">
-                    <f:for each="{book.images}" as="image">
-                        <f:image src="{image.originalResource.originalFile.uid}"
-                                 title="{image.originalResource.title}"
-                                 alt="{image.originalResource.title}"
-                                 width="{settings.showAction.media.image.size.small.maxWidth}"
-                                 height="{settings.showAction.media.image.size.small.maxHeight}"
+                    <f:then>
+                        <div id="booksCarousel" class="carousel slide" data-ride="carousel">
+                            <div class="carousel-inner">
+                                <f:for each="{book.images}" as="image" iteration="iterator">
+                                    <div class="carousel-item{f:if(condition:iterator.isFirst, then: ' active')}">
+                                        <f:image src="{image.originalResource.originalFile.uid}"
+                                                 title="{image.originalResource.title}"
+                                                 alt="{image.originalResource.title}"
+                                                 width="{settings.showAction.media.image.size.large.maxWidth}"
+                                                 height="{settings.showAction.media.image.size.large.maxHeight}"
+                                                 class="img-fluid" />
+                                    </div>
+                                </f:for>
+                            </div>
+                            <a class="carousel-control-prev" href="#booksCarousel" role="button" data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#booksCarousel" role="button" data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                    </f:then>
+                    <f:else>
+                        <f:image src="{book.firstImage.originalResource.originalFile.uid}"
+                                 title="{book.firstImage.originalResource.title}"
+                                 alt="{book.firstImage.originalResource.title}"
+                                 width="{settings.showAction.media.image.size.large.maxWidth}"
+                                 height="{settings.showAction.media.image.size.large.maxHeight}"
                                  class="img-fluid" />
-                    </f:for>
+                    </f:else>
                 </f:if>
             </f:if>
         </div>
